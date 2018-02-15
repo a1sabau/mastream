@@ -9,15 +9,15 @@ Usage
 
 Construct a MaStream instance specifying:
 
-* number of h:d-Trees in the ensemble (tree_no), 
-* number of data entries used for constructing each tree (tree_train_size), 
-* maximum tree depth (max_lvl), 
-* stream speed as number of data instances per time unit (horizon)
+* tree_no: number of h:d-Trees in the ensemble
+* tree_train_size: number of data entries used for constructing each tree
+* max_lvl: maximum tree depth
+* horizon: stream speed as number of data instances per time unit
 
 ::
 
   from mastream.MaStream import MaStream
-  mastream = MaStream(tree_no = 10, tree_train_size = 45, max_lvl = 10, horizon = 1000)
+  mastream = MaStream(tree_no=20, tree_train_size=45, max_lvl=10, horizon=1000)
 
 Consume a stream:
 
@@ -30,7 +30,7 @@ After each time unit, the identified labels can be retrieved via:
 
 ::
 
-  mastream.get_labels
+  mastream.get_labels()
 
 
 
