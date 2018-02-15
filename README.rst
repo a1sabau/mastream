@@ -1,5 +1,38 @@
-MaStream - Clustering Data Streams Using Mass Estimation
-========================================================
+MaStream
+========
+
+Clustering Data Streams Using Mass Estimation
+=============================================
+
+Usage
+-----
+
+Construct a MaStream instance specifying:
+
+* number of h:d-Trees in the ensemble (tree_no), 
+* number of data entries used for constructing each tree (tree_train_size), 
+* maximum tree depth (max_lvl), 
+* stream speed as number of data instances per time unit (horizon)
+
+::
+
+  from mastream.MaStream import MaStream
+  mastream = MaStream(tree_no = 10, tree_train_size = 45, max_lvl = 10, horizon = 1000)
+
+Consume a stream:
+
+::
+
+  for idx, entry in enumerate(stream):
+        mastream.parse_entry(idx, entry)
+
+After each time unit, the identified labels can be retrieved via:
+
+::
+
+  mastream.get_labels
+
+
 
 References
 ----------
